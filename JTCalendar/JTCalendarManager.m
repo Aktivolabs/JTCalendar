@@ -26,10 +26,24 @@
     
     return self;
 }
-
+- (instancetype)initWithLocale:(NSLocale *)locale andTimeZone:(NSTimeZone *)timeZone andCalender:(NSCalendar*)calendar
+{
+    self = [super init];
+    if(!self){
+        return nil;
+    }
+    
+    _dateHelper = [[JTDateHelper alloc] initWithLocale:locale andTimeZone:timeZone andCalender:calendar];
+    [self commonInit:locale andTimeZone:timeZone];
+    
+    return self;
+}
 - (void)commonInit:(NSLocale *)locale andTimeZone:(NSTimeZone *)timeZone
 {
-    _dateHelper = [[JTDateHelper alloc] initWithLocale:locale andTimeZone:timeZone];
+    if (_dateHelper == nil){
+        _dateHelper = [[JTDateHelper alloc] initWithLocale:locale andTimeZone:timeZone];
+    }
+
     _settings = [JTCalendarSettings new];
     
     _delegateManager = [JTCalendarDelegateManager new];

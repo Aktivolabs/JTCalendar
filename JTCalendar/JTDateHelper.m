@@ -26,6 +26,16 @@
     }
     return self;
 }
+- (instancetype)initWithLocale:(NSLocale *)locale andTimeZone:(NSTimeZone *)timeZone andCalender:(NSCalendar *)calendar
+{
+    self = [super init];
+    if (self) {
+        _locale = locale;
+        _timeZone = timeZone;
+        _calendar = calendar;
+    }
+    return self;
+}
 
 - (NSCalendar *)calendar
 {
@@ -35,10 +45,9 @@
 #else
         _calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
 #endif
-        _calendar.timeZone = _timeZone;
-        _calendar.locale = _locale;
     }
-    
+    _calendar.timeZone = _timeZone;
+    _calendar.locale = _locale;
     return _calendar;
 }
 
