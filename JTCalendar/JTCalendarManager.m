@@ -26,15 +26,15 @@
     
     return self;
 }
-- (instancetype)initWithLocale:(NSLocale *)locale andTimeZone:(NSTimeZone *)timeZone andCalender:(NSCalendar*)calendar
+- (instancetype)initWithCalendar:(NSCalendar*)calendar
 {
     self = [super init];
     if(!self){
         return nil;
     }
     
-    _dateHelper = [[JTDateHelper alloc] initWithLocale:locale andTimeZone:timeZone andCalender:calendar];
-    [self commonInit:locale andTimeZone:timeZone];
+    _dateHelper = [[JTDateHelper alloc] initWithCalendar:calendar];
+    [self commonInit:calendar.locale andTimeZone:calendar.timeZone];
     
     return self;
 }

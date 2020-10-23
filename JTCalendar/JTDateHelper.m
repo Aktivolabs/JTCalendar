@@ -26,13 +26,13 @@
     }
     return self;
 }
-- (instancetype)initWithLocale:(NSLocale *)locale andTimeZone:(NSTimeZone *)timeZone andCalender:(NSCalendar *)calendar
+- (instancetype)initWithCalendar:(NSCalendar *)calendar
 {
     self = [super init];
     if (self) {
-        _locale = locale;
-        _timeZone = timeZone;
         _calendar = calendar;
+        _locale = calendar.locale;
+        _timeZone = calendar.timeZone;
     }
     return self;
 }

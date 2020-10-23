@@ -10,7 +10,7 @@
 @interface JTDateHelper : NSObject
 
 - initWithLocale:(NSLocale *)locale andTimeZone:(NSTimeZone *)timeZone;
-- initWithLocale:(NSLocale *)locale andTimeZone:(NSTimeZone *)timeZone andCalender:(NSCalendar *)calendar;
+- initWithCalendar:(NSCalendar *)calendar;
 
 - (NSCalendar *)calendar;
 - (NSDateFormatter *)createDateFormatter;
